@@ -3,13 +3,11 @@
 // Role check failed wording
 DEFINE("WORDING_ROLECHECK_FAILED", "You are not permitted to do that!");
 
-// Translation System - Gettext wrapper with fallback
+// Translation System - Gettext wrapper
 // Global variable to track if translation system is initialized
 $GLOBALS['translation_initialized'] = false;
 $GLOBALS['translation_available'] = false;
 $GLOBALS['translation_locale'] = 'en_US';
-$GLOBALS['translation_fallback_mode'] = false;
-$GLOBALS['translation_fallback_strings'] = array();
 
 /**
  * Initialize the translation system
@@ -56,32 +54,38 @@ function init_translations($locale = 'en_US') {
         }
     }
 
+    // Also set environment variables for gettext
+    // This is important for gettext to work properly
+    putenv("LC_ALL=$locale");
+    putenv("LC_MESSAGES=$locale");
+    putenv("LANGUAGE=$locale");
+
     // Note: Even if locale is not set on the system, gettext can still work
-    // The warning is informational only and won't prevent translations from working
     if (!$locale_set) {
-        error_log("ITFlow Translation: Could not set system locale to $locale (tried: " . implode(', ', $locale_variants) . "). This is informational only - translations may still work.");
+        error_log("ITFlow Translation: Could not set system locale to $locale. This is informational only - translations may still work.");
     }
 
     // Set text domain
     $domain = 'itflow';
     $locale_path = __DIR__ . '/locale';
 
-    bindtextdomain($domain, $locale_path);
+    // Ensure we have an absolute path for gettext
+    $locale_path_absolute = realpath($locale_path);
+    if ($locale_path_absolute === false) {
+        error_log("ITFlow Translation: Could not resolve locale path: $locale_path");
+        $translation_available = false;
+        return false;
+    }
+
+    bindtextdomain($domain, $locale_path_absolute);
     bind_textdomain_codeset($domain, 'UTF-8');
     textdomain($domain);
 
     // Check if translation file exists
     $mo_file = $locale_path . '/' . $locale . '/LC_MESSAGES/' . $domain . '.mo';
     if (!file_exists($mo_file)) {
-        // If translation doesn't exist, try fallback mode with .po file
-        $po_file = $locale_path . '/' . $locale . '/LC_MESSAGES/' . $domain . '.po';
-        if ($locale !== 'en_US' && file_exists($po_file)) {
-            error_log("ITFlow Translation: .mo file not found, attempting fallback mode with .po file for locale $locale");
-            return init_translations_fallback($po_file, $locale);
-        }
-
-        // No translation file available
-        if ($locale !== 'en_US' && !str_starts_with($locale, 'en_')) {
+        // If German translation doesn't exist yet, log it but don't fail
+        if ($locale !== 'en_US') {
             error_log("ITFlow Translation: Translation file not found for locale $locale. Using English as fallback. ($mo_file)");
         }
         $translation_available = false;
@@ -93,77 +97,6 @@ function init_translations($locale = 'en_US') {
 }
 
 /**
- * Fallback translation system that works without gettext or compiled .mo files
- * This is used when gettext is not available or .mo files don't exist
- *
- * @param string $po_file Path to the .po file
- * @param string $locale The locale being used
- * @return bool Returns true if fallback mode is activated
- */
-function init_translations_fallback($po_file, $locale) {
-    global $translation_initialized, $translation_available, $translation_locale;
-    global $translation_fallback_mode, $translation_fallback_strings;
-
-    if (!file_exists($po_file)) {
-        return false;
-    }
-
-    // Parse .po file
-    $lines = file($po_file, FILE_IGNORE_NEW_LINES);
-    $msgid = '';
-    $msgstr = '';
-    $in_msgid = false;
-    $in_msgstr = false;
-
-    foreach ($lines as $line) {
-        $line = trim($line);
-
-        // Skip comments and empty lines
-        if (empty($line) || $line[0] == '#') {
-            continue;
-        }
-
-        if (strpos($line, 'msgid "') === 0) {
-            // Save previous entry
-            if (!empty($msgid) && !empty($msgstr)) {
-                $translation_fallback_strings[$msgid] = $msgstr;
-            }
-
-            $msgid = substr($line, 7, -1); // Remove 'msgid "' and trailing '"'
-            $msgid = stripcslashes($msgid);
-            $msgstr = '';
-            $in_msgid = true;
-            $in_msgstr = false;
-        } elseif (strpos($line, 'msgstr "') === 0) {
-            $msgstr = substr($line, 8, -1); // Remove 'msgstr "' and trailing '"'
-            $msgstr = stripcslashes($msgstr);
-            $in_msgid = false;
-            $in_msgstr = true;
-        } elseif ($line[0] == '"' && ($in_msgid || $in_msgstr)) {
-            // Multiline string
-            $string_part = substr($line, 1, -1);
-            $string_part = stripcslashes($string_part);
-            if ($in_msgid) {
-                $msgid .= $string_part;
-            } elseif ($in_msgstr) {
-                $msgstr .= $string_part;
-            }
-        }
-    }
-
-    // Save last entry
-    if (!empty($msgid) && !empty($msgstr)) {
-        $translation_fallback_strings[$msgid] = $msgstr;
-    }
-
-    $translation_fallback_mode = true;
-    $translation_available = true;
-    error_log("ITFlow Translation: Using fallback mode for locale $locale with " . count($translation_fallback_strings) . " strings");
-
-    return true;
-}
-
-/**
  * Translate a string
  * Short function name for convenience, following gettext convention
  *
@@ -171,18 +104,12 @@ function init_translations_fallback($po_file, $locale) {
  * @return string The translated message
  */
 function __($message) {
-    global $translation_available, $translation_fallback_mode, $translation_fallback_strings;
+    global $translation_available;
 
     if (!$translation_available) {
         return $message;
     }
 
-    // Use fallback mode if active
-    if ($translation_fallback_mode) {
-        return $translation_fallback_strings[$message] ?? $message;
-    }
-
-    // Use gettext
     $translated = gettext($message);
     return $translated;
 }

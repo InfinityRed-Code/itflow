@@ -5,14 +5,6 @@
 The ITFlow translation system requires:
 - PHP 7.4 or higher
 - PHP gettext extension (recommended, but not required)
-- System locales (recommended, but not required - fallback mode available)
-
-**Important Note:** The translation system has multiple fallback mechanisms:
-1. If gettext extension is missing → Uses PHP-based fallback mode
-2. If .mo files are missing → Reads .po files directly
-3. If system locale is not installed → Still works, just logs an informational warning
-
-This means **translations will work even on minimal server configurations!** The only required files are the .po translation files in the `locale/` directory.
 
 ## Installation Steps
 
@@ -224,24 +216,9 @@ Look for lines starting with `ITFlow Translation:`
 
 ### "Could not set locale" Warning
 
-**Symptom:** Warning in logs: `ITFlow Translation: Could not set system locale to de_DE`
+**Symptom:** Warning in logs about locale not being set
 
-**This is INFORMATIONAL ONLY** - Translations will still work!
-
-**Why this happens:** The system locale (de_DE.UTF-8) is not installed on your server. The translation system will automatically use fallback mode and load translations directly from .po files.
-
-**If you want to remove this warning (optional):**
-Install the system locale (see step 3 above):
-```bash
-# Debian/Ubuntu
-sudo locale-gen de_DE.UTF-8
-sudo update-locale
-
-# CentOS/RHEL
-sudo localedef -i de_DE -f UTF-8 de_DE.UTF-8
-```
-
-**Note:** This warning does NOT affect translation functionality - it's purely informational
+**Solution:** Install the system locale (see step 3 above)
 
 ### Translations Show Old Text
 
