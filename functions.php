@@ -3,6 +3,154 @@
 // Role check failed wording
 DEFINE("WORDING_ROLECHECK_FAILED", "You are not permitted to do that!");
 
+// Translation System - Gettext wrapper with fallback
+// Global variable to track if translation system is initialized
+$GLOBALS['translation_initialized'] = false;
+$GLOBALS['translation_available'] = false;
+$GLOBALS['translation_locale'] = 'en_US';
+
+/**
+ * Initialize the translation system
+ * Should be called after locale is loaded from database
+ *
+ * @param string $locale The locale to use (e.g., 'de_DE', 'en_US')
+ * @return bool Returns true if translation system is available
+ */
+function init_translations($locale = 'en_US') {
+    global $translation_initialized, $translation_available, $translation_locale;
+
+    if ($translation_initialized) {
+        return $translation_available;
+    }
+
+    $translation_initialized = true;
+    $translation_locale = $locale;
+
+    // Check if gettext extension is available
+    if (!function_exists('gettext')) {
+        error_log("ITFlow Translation: gettext extension not available, using fallback mode");
+        $translation_available = false;
+        return false;
+    }
+
+    // Set locale for gettext
+    $locale_variants = [
+        $locale . '.UTF-8',
+        $locale . '.utf8',
+        $locale,
+    ];
+
+    $locale_set = false;
+    foreach ($locale_variants as $locale_variant) {
+        if (setlocale(LC_MESSAGES, $locale_variant) !== false) {
+            $locale_set = true;
+            break;
+        }
+    }
+
+    if (!$locale_set) {
+        error_log("ITFlow Translation: Could not set locale to $locale");
+    }
+
+    // Set text domain
+    $domain = 'itflow';
+    $locale_path = __DIR__ . '/locale';
+
+    bindtextdomain($domain, $locale_path);
+    bind_textdomain_codeset($domain, 'UTF-8');
+    textdomain($domain);
+
+    // Check if translation file exists
+    $mo_file = $locale_path . '/' . $locale . '/LC_MESSAGES/' . $domain . '.mo';
+    if (!file_exists($mo_file)) {
+        // If German translation doesn't exist yet, log it but don't fail
+        if ($locale !== 'en_US') {
+            error_log("ITFlow Translation: Translation file not found for locale $locale. Using English as fallback. ($mo_file)");
+        }
+        $translation_available = false;
+        return false;
+    }
+
+    $translation_available = true;
+    return true;
+}
+
+/**
+ * Translate a string
+ * Short function name for convenience, following gettext convention
+ *
+ * @param string $message The message to translate
+ * @return string The translated message
+ */
+function __($message) {
+    global $translation_available, $translation_locale;
+
+    if (!$translation_available) {
+        return $message;
+    }
+
+    $translated = gettext($message);
+    return $translated;
+}
+
+/**
+ * Translate a string (alias of __)
+ * Alternative function name for those who prefer _t() convention
+ *
+ * @param string $message The message to translate
+ * @return string The translated message
+ */
+function _t($message) {
+    return __($message);
+}
+
+/**
+ * Echo a translated string
+ * Convenience function to translate and echo in one call
+ *
+ * @param string $message The message to translate and echo
+ */
+function _e($message) {
+    echo __($message);
+}
+
+/**
+ * Translate a string with context
+ * Useful when the same string might have different translations in different contexts
+ *
+ * @param string $context The context for this translation
+ * @param string $message The message to translate
+ * @return string The translated message
+ */
+function _x($message, $context) {
+    global $translation_available;
+
+    if (!$translation_available || !function_exists('pgettext')) {
+        return $message;
+    }
+
+    // pgettext is not available in all PHP installations, use fallback
+    return gettext($message);
+}
+
+/**
+ * Translate plural forms
+ *
+ * @param string $singular Singular form
+ * @param string $plural Plural form
+ * @param int $count The count to determine which form to use
+ * @return string The translated message
+ */
+function _n($singular, $plural, $count) {
+    global $translation_available;
+
+    if (!$translation_available || !function_exists('ngettext')) {
+        return $count == 1 ? $singular : $plural;
+    }
+
+    return ngettext($singular, $plural, $count);
+}
+
 // PHP Mailer Libs
 require_once "plugins/PHPMailer/src/Exception.php";
 require_once "plugins/PHPMailer/src/PHPMailer.php";

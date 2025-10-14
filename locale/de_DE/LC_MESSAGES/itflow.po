@@ -1,0 +1,347 @@
+# ITFlow Translation - German (Germany)
+# Copyright (C) 2025 ITFlow
+# This file is distributed under the same license as the ITFlow package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ITFlow\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-14 12:00+0000\n"
+"PO-Revision-Date: 2025-01-14 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# Common UI Elements
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Clients"
+msgstr "Kunden"
+
+msgid "Tickets"
+msgstr "Tickets"
+
+msgid "Invoices"
+msgstr "Rechnungen"
+
+msgid "Quotes"
+msgstr "Angebote"
+
+msgid "Products"
+msgstr "Produkte"
+
+msgid "Accounting"
+msgstr "Buchhaltung"
+
+msgid "Reports"
+msgstr "Berichte"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Logout"
+msgstr "Abmelden"
+
+msgid "Login"
+msgstr "Anmelden"
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Email"
+msgstr "E-Mail"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Add"
+msgstr "Hinzufügen"
+
+msgid "Search"
+msgstr "Suchen"
+
+msgid "Export"
+msgstr "Exportieren"
+
+msgid "Import"
+msgstr "Importieren"
+
+msgid "Print"
+msgstr "Drucken"
+
+msgid "Back"
+msgstr "Zurück"
+
+msgid "Next"
+msgstr "Weiter"
+
+msgid "Previous"
+msgstr "Zurück"
+
+msgid "Submit"
+msgstr "Absenden"
+
+msgid "Close"
+msgstr "Schließen"
+
+msgid "Open"
+msgstr "Öffnen"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Time"
+msgstr "Zeit"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Notes"
+msgstr "Notizen"
+
+msgid "Amount"
+msgstr "Betrag"
+
+msgid "Total"
+msgstr "Gesamt"
+
+msgid "Subtotal"
+msgstr "Zwischensumme"
+
+msgid "Tax"
+msgstr "Steuer"
+
+msgid "Discount"
+msgstr "Rabatt"
+
+msgid "Actions"
+msgstr "Aktionen"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nein"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "None"
+msgstr "Keine"
+
+# Localization Settings
+msgid "Localization"
+msgstr "Lokalisierung"
+
+msgid "Language"
+msgstr "Sprache"
+
+msgid "Currency"
+msgstr "Währung"
+
+msgid "Timezone"
+msgstr "Zeitzone"
+
+msgid "Date Format"
+msgstr "Datumsformat"
+
+msgid "Time Format"
+msgstr "Zeitformat"
+
+# Messages
+msgid "Success"
+msgstr "Erfolg"
+
+msgid "Error"
+msgstr "Fehler"
+
+msgid "Warning"
+msgstr "Warnung"
+
+msgid "Information"
+msgstr "Information"
+
+msgid "Are you sure?"
+msgstr "Sind Sie sicher?"
+
+msgid "This action cannot be undone."
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden."
+
+msgid "Please confirm your action."
+msgstr "Bitte bestätigen Sie Ihre Aktion."
+
+msgid "Record saved successfully."
+msgstr "Datensatz erfolgreich gespeichert."
+
+msgid "Record deleted successfully."
+msgstr "Datensatz erfolgreich gelöscht."
+
+msgid "An error occurred. Please try again."
+msgstr "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+
+msgid "Please fill in all required fields."
+msgstr "Bitte füllen Sie alle Pflichtfelder aus."
+
+msgid "Invalid input."
+msgstr "Ungültige Eingabe."
+
+msgid "No records found."
+msgstr "Keine Einträge gefunden."
+
+msgid "Loading..."
+msgstr "Laden..."
+
+# Ticket Statuses
+msgid "New"
+msgstr "Neu"
+
+msgid "On Hold"
+msgstr "In Wartestellung"
+
+msgid "Closed"
+msgstr "Geschlossen"
+
+msgid "Resolved"
+msgstr "Gelöst"
+
+msgid "In Progress"
+msgstr "In Bearbeitung"
+
+# Client Management
+msgid "Client Name"
+msgstr "Kundenname"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Contacts"
+msgstr "Kontakte"
+
+msgid "Add Client"
+msgstr "Kunde hinzufügen"
+
+msgid "Edit Client"
+msgstr "Kunde bearbeiten"
+
+msgid "Client Details"
+msgstr "Kundendetails"
+
+# Invoice Management
+msgid "Invoice Number"
+msgstr "Rechnungsnummer"
+
+msgid "Invoice Date"
+msgstr "Rechnungsdatum"
+
+msgid "Due Date"
+msgstr "Fälligkeitsdatum"
+
+msgid "Paid"
+msgstr "Bezahlt"
+
+msgid "Unpaid"
+msgstr "Unbezahlt"
+
+msgid "Overdue"
+msgstr "Überfällig"
+
+msgid "Partial"
+msgstr "Teilweise"
+
+msgid "Add Invoice"
+msgstr "Rechnung hinzufügen"
+
+msgid "Edit Invoice"
+msgstr "Rechnung bearbeiten"
+
+msgid "Send Invoice"
+msgstr "Rechnung senden"
+
+# Ticket Management
+msgid "Ticket Number"
+msgstr "Ticketnummer"
+
+msgid "Subject"
+msgstr "Betreff"
+
+msgid "Priority"
+msgstr "Priorität"
+
+msgid "Assigned To"
+msgstr "Zugewiesen an"
+
+msgid "Add Ticket"
+msgstr "Ticket hinzufügen"
+
+msgid "Edit Ticket"
+msgstr "Ticket bearbeiten"
+
+msgid "View Ticket"
+msgstr "Ticket anzeigen"
+
+msgid "High"
+msgstr "Hoch"
+
+msgid "Medium"
+msgstr "Mittel"
+
+msgid "Low"
+msgstr "Niedrig"
+
+# Admin Settings
+msgid "Company Settings"
+msgstr "Firmeneinstellungen"
+
+msgid "User Management"
+msgstr "Benutzerverwaltung"
+
+msgid "System Settings"
+msgstr "Systemeinstellungen"
+
+msgid "Security"
+msgstr "Sicherheit"
+
+msgid "Notifications"
+msgstr "Benachrichtigungen"
+
+msgid "Backups"
+msgstr "Sicherungen"
+
+# Common phrases
+msgid "Welcome to ITFlow"
+msgstr "Willkommen bei ITFlow"
+
+msgid "Thank you"
+msgstr "Vielen Dank"
+
+msgid "Powered by ITFlow"
+msgstr "Betrieben mit ITFlow"
