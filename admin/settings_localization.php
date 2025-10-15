@@ -11,13 +11,6 @@ $company_currency = nullable_htmlentities($row['company_currency']);
 // Get a list of all available timezones
 $timezones = DateTimeZone::listIdentifiers();
 
-// DEBUG: Check translation state
-error_log("DEBUG settings_localization.php: translation_initialized=" . var_export($GLOBALS['translation_initialized'], true));
-error_log("DEBUG settings_localization.php: translation_available=" . var_export($GLOBALS['translation_available'], true));
-error_log("DEBUG settings_localization.php: translation_locale=" . var_export($GLOBALS['translation_locale'], true));
-error_log("DEBUG settings_localization.php: session_company_locale=" . var_export($session_company_locale ?? 'NOT SET', true));
-error_log("DEBUG settings_localization.php: Test __('Settings') = " . __('Settings'));
-
 ?>
 
     <div class="card card-dark">
