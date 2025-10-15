@@ -726,3 +726,6 @@ msgstr "Aktion"
 
 msgid "Archived"
 msgstr "Archivierte"
+
+msgid "Search Users"
+msgstr "Benutzer Suchen"
