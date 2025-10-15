@@ -160,7 +160,7 @@ msgstr "Keine"
 
 # Localization Settings
 msgid "Localization"
-msgstr "Lokalisierung"
+msgstr "Standort & Weiteres"
 
 msgid "Language"
 msgstr "Sprache"
@@ -606,3 +606,96 @@ msgstr "Favicon"
 
 msgid "Upload Icon"
 msgstr "Icon hochladen"
+
+msgid "Users"
+msgstr "Benutzer"
+
+msgid "Roles"
+msgstr "Rollen"
+
+msgid "API Keys"
+msgstr "API Schlüssel"
+
+msgid "TAGS & CATEGORIES"
+msgstr "TAGS & KATEGORIEN"
+
+msgid "Categories"
+msgstr "Kategorien"
+
+msgid "Taxes"
+msgstr "Steuern"
+
+msgid "Payment Methods"
+msgstr "Zahlungsmethoden"
+
+msgid "Payment Providers"
+msgstr "Zahlungsanbieter"
+
+msgid "Saved Payments"
+msgstr "Gespeicherte Zahlungen"
+
+msgid "AI Providers"
+msgstr "KI Dienstleister"
+
+msgid "AI Models"
+msgstr "KI Modelle"
+
+msgid "Ticket Statuses"
+msgstr "Ticket Stati"
+
+msgid "Custom Links"
+msgstr "Benutzerdefinierte Links"
+
+msgid "TEMPLATES"
+msgstr "VORLAGEN"
+
+msgid "Project Templates"
+msgstr "Projekt-Vorlagen"
+
+msgid "Ticket Templates"
+msgstr "Ticket-Vorlangen"
+
+msgid "Vendor Templates"
+msgstr "Lieferanten-Vorlagen"
+
+msgid "License Templates"
+msgstr "Lizenz-Vorlagen"
+
+msgid "Document Templates"
+msgstr "Dokumenten-Vorlagen"
+
+msgid "MAINTENANCE"
+msgstr "WARTUNG"
+
+msgid "Mail-Queue"
+msgstr "Mail-Warteschlange"
+
+msgid "Audit Logs"
+msgstr "System-Logs"
+
+msgid "App Logs"
+msgstr "Anwendungs-Logs"
+
+msgid "Backup"
+msgstr "Backup"
+
+msgid "Debug"
+msgstr "Debug"
+
+msgid "Update"
+msgstr "Update"
+
+msgid "Quote"
+msgstr "Angebot"
+
+msgid "Identity Provider"
+msgstr "OAuth Anbindung"
+
+msgid "Telemetry"
+msgstr "Telemetrie"
+
+msgid "Modules"
+msgstr "Module"
+
+msgid "Administration"
+msgstr "Administration"

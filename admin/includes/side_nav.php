@@ -4,7 +4,7 @@
         <p class="h6">
             <i class="nav-icon fas fa-arrow-left ml-3 mr-2"></i>
             <span class="brand-text">
-                Back | <strong>Administration</strong>
+                <?php _e('Back'); ?> | <strong><?php _e('Administration'); ?></strong>
             </span>
         </p>
     </a>
@@ -18,19 +18,19 @@
                 <li class="nav-item">
                     <a href="users.php" class="nav-link <?php if (basename($_SERVER["PHP_SELF"]) == "users.php") {echo "active";} ?>">
                         <i class="nav-icon fas fa-users"></i>
-                        <p>Users</p>
+                        <p><?php _e('Users'); ?></p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="roles.php" class="nav-link <?php if (basename($_SERVER["PHP_SELF"]) == "roles.php") {echo "active";} ?>">
                         <i class="nav-icon fas fa-user-shield"></i>
-                        <p>Roles</p>
+                        <p><?php _e('Roles'); ?></p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="api_keys.php" class="nav-link <?php if (basename($_SERVER["PHP_SELF"]) == "api_keys.php") {echo "active";} ?>">
                         <i class="nav-icon fas fa-key"></i>
-                        <p>API Keys</p>
+                        <p><?php _e('API Keys'); ?></p>
                     </a>
                 </li>
                 <li class="nav-header">TAGS & CATEGORIES</li>
@@ -38,20 +38,20 @@
                 <li class="nav-item">
                     <a href="tag.php" class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'tag.php' ? 'active' : ''); ?>">
                         <i class="nav-icon fas fa-tags"></i>
-                        <p>Tags</p>
+                        <p><?php _e('Tags'); ?></p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="category.php" class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'category.php' ? 'active' : ''); ?>">
                         <i class="nav-icon fas fa-list-ul"></i>
-                        <p>Categories</p>
+                        <p><?php _e('Categories'); ?></p>
                     </a>
                 </li>
                 <?php if ($config_module_enable_accounting) { ?>
                     <li class="nav-item">
                         <a href="tax.php" class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'tax.php' ? 'active' : ''); ?>">
                             <i class="nav-icon fas fa-balance-scale"></i>
-                            <p>Taxes</p>
+                            <p><?php _e('Taxes'); ?></p>
                         </a>
                     </li>
                     <li class="nav-item">
