@@ -5,14 +5,14 @@ require_once "includes/inc_all_admin.php";
 
 <div class="card card-dark">
     <div class="card-header py-3">
-        <h3 class="card-title"><i class="fas fa-fw fa-cogs mr-2"></i>Defaults</h3>
+        <h3 class="card-title"><i class="fas fa-fw fa-cogs mr-2"></i><?php _e('Defaults'); ?></h3>
     </div>
     <div class="card-body">
         <form action="post.php" method="post" autocomplete="off">
             <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>">
 
             <div class="form-group">
-                <label>Start Page</label>
+                <label><?php _e('Start Page'); ?></label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-fw fa-home"></i></span>
@@ -32,13 +32,13 @@ require_once "includes/inc_all_admin.php";
             </div>
 
             <div class="form-group">
-                <label>Calendar</label>
+                <label><?php _e('Calendar'); ?></label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-fw fa-calendar"></i></span>
                     </div>
                     <select class="form-control select2" name="calendar">
-                        <option value="0">- None -</option>
+                        <option value="0">- <?php _e('None'); ?> -</option>
                         <?php
 
                         $sql = mysqli_query($mysqli, "SELECT * FROM calendars ORDER BY calendar_name ASC");
@@ -55,13 +55,13 @@ require_once "includes/inc_all_admin.php";
             </div>
 
             <div class="form-group">
-                <label>Transfer From Account</label>
+                <label><?php _e('Transfer From Account'); ?></label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-fw fa-exchange-alt"></i></span>
                     </div>
                     <select class="form-control select2" name="transfer_from_account">
-                        <option value="0">- None -</option>
+                        <option value="0">- <?php _e('None'); ?> -</option>
                         <?php
 
                         $sql = mysqli_query($mysqli, "SELECT * FROM accounts WHERE account_archived_at IS NULL ORDER BY account_name ASC");
@@ -78,13 +78,13 @@ require_once "includes/inc_all_admin.php";
             </div>
 
             <div class="form-group">
-                <label>Transfer To Account</label>
+                <label><?php _e('Transfer To Account'); ?></label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-fw fa-exchange-alt"></i></span>
                     </div>
                     <select class="form-control select2" name="transfer_to_account">
-                        <option value="0">- None -</option>
+                        <option value="0">- <?php _e('None'); ?> -</option>
                         <?php
 
                         $sql = mysqli_query($mysqli, "SELECT * FROM accounts WHERE account_archived_at IS NULL ORDER BY account_name ASC");
@@ -101,13 +101,13 @@ require_once "includes/inc_all_admin.php";
             </div>
 
             <div class="form-group">
-                <label>Payment Account</label>
+                <label><?php _e('Payment Account'); ?></label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-fw fa-credit-card"></i></span>
                     </div>
                     <select class="form-control select2" name="payment_account">
-                        <option value="0">- None -</option>
+                        <option value="0">- <?php _e('None'); ?> -</option>
                         <?php
 
                         $sql = mysqli_query($mysqli, "SELECT * FROM accounts WHERE account_archived_at IS NULL ORDER BY account_name ASC");
@@ -126,13 +126,13 @@ require_once "includes/inc_all_admin.php";
             </div>
 
             <div class="form-group">
-                <label>Expense Account</label>
+                <label><?php _e('Expense Account'); ?></label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-fw fa-shopping-cart"></i></span>
                     </div>
                     <select class="form-control select2" name="expense_account">
-                        <option value="0">- None -</option>
+                        <option value="0">- <?php _e('None'); ?> -</option>
                         <?php
 
                         $sql = mysqli_query($mysqli, "SELECT * FROM accounts WHERE account_archived_at IS NULL ORDER BY account_name ASC");
@@ -149,13 +149,13 @@ require_once "includes/inc_all_admin.php";
             </div>
 
             <div class="form-group">
-                <label>Payment Method</label>
+                <label><?php _e('Payment Method'); ?></label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-fw fa-credit-card"></i></span>
                     </div>
                     <select class="form-control select2" name="payment_method">
-                        <option value="">- None -</option>
+                        <option value="">- <?php _e('None'); ?> -</option>
                         <?php
 
                         $sql = mysqli_query($mysqli, "SELECT * FROM categories WHERE category_type = 'Payment Method' ORDER BY category_name ASC");
@@ -171,13 +171,13 @@ require_once "includes/inc_all_admin.php";
             </div>
 
             <div class="form-group">
-                <label>Expense Payment Method</label>
+                <label><?php _e('Expense Payment Method'); ?></label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-fw fa-credit-card"></i></span>
                     </div>
                     <select class="form-control select2" name="expense_payment_method">
-                        <option value="">- None -</option>
+                        <option value="">- <?php _e('None'); ?> -</option>
                         <?php
 
                         $sql = mysqli_query($mysqli, "SELECT * FROM categories WHERE category_type = 'Payment Method' ORDER BY category_name ASC");
@@ -193,7 +193,7 @@ require_once "includes/inc_all_admin.php";
             </div>
 
             <div class="form-group">
-                <label>Net Terms</label>
+                <label><?php _e('Net Terms'); ?></label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-fw fa-calendar"></i></span>
@@ -209,7 +209,7 @@ require_once "includes/inc_all_admin.php";
             </div>
 
             <div class="form-group">
-                <label>Client Hourly Rate</label>
+                <label><?php _e('Client Hourly Rate'); ?></label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-fw fa-clock"></i></span>
@@ -220,7 +220,7 @@ require_once "includes/inc_all_admin.php";
 
             <hr>
 
-            <button type="submit" name="edit_default_settings" class="btn btn-primary text-bold"><i class="fa fa-check mr-2"></i>Save</button>
+            <button type="submit" name="edit_default_settings" class="btn btn-primary text-bold"><i class="fa fa-check mr-2"></i><?php _e('Save'); ?></button>
 
         </form>
     </div>

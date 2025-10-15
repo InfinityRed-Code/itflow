@@ -4,13 +4,13 @@ require_once "includes/inc_all_admin.php";
 
     <div class="card card-dark">
         <div class="card-header py-3">
-            <h3 class="card-title"><i class="fas fa-fw fa-paint-brush mr-2"></i>Theme</h3>
+            <h3 class="card-title"><i class="fas fa-fw fa-paint-brush mr-2"></i><?php _e('Theme'); ?></h3>
         </div>
         <div class="card-body">
             <form action="post.php" method="post" autocomplete="off">
                 <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>">
 
-                <label>Select a Theme</label>
+                <label><?php _e('Select a Theme'); ?></label>
                 <div class="form-row">
 
                     <?php
@@ -42,7 +42,7 @@ require_once "includes/inc_all_admin.php";
 
     <div class="card card-dark">
         <div class="card-header py-3">
-            <h3 class="card-title"><i class="fas fa-fw fa-image mr-2"></i>Favicon</h3>
+            <h3 class="card-title"><i class="fas fa-fw fa-image mr-2"></i><?php _e('Favicon'); ?></h3>
         </div>
         <div class="card-body">
             <form action="post.php" method="post" enctype="multipart/form-data" autocomplete="off">
@@ -56,7 +56,7 @@ require_once "includes/inc_all_admin.php";
 
                 <hr>
 
-                <button type="submit" name="edit_favicon_settings" class="btn btn-primary text-bold"><i class="fa fa-check mr-2"></i>Upload Icon</button>
+                <button type="submit" name="edit_favicon_settings" class="btn btn-primary text-bold"><i class="fa fa-check mr-2"></i><?php _e('Upload Icon'); ?></button>
 
             </form>
         </div>
