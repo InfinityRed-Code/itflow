@@ -344,4 +344,265 @@ msgid "Thank you"
 msgstr "Vielen Dank"
 
 msgid "Powered by ITFlow"
-msgstr "Betrieben mit ITFlow"
+msgstr "Powered by ITFlow"
+
+msgid "Company Details"
+msgstr "Unternehmensdetails"
+
+msgid "Remove Logo"
+msgstr "Logo entfernen"
+
+msgid "Upload company logo"
+msgstr "Firmenlogo hochladen"
+
+msgid "City"
+msgstr "Stadt"
+
+msgid "State / Province"
+msgstr "Bundesland"
+
+msgid "Postal Code"
+msgstr "Postleitzahl"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Tax ID"
+msgstr "Steuer-ID"
+
+msgid "Company Name"
+msgstr "Name des Unternehmens"
+
+msgid "Street Address"
+msgstr "Straße und Hausnummer"
+
+msgid "State or Province"
+msgstr "Bundesland"
+
+msgid "Zip or Postal Code"
+msgstr "Postleitzahl"
+
+msgid "Phone Number"
+msgstr "Rufnummer"
+
+msgid "Email address"
+msgstr "E-Mail Adresse"
+
+msgid "Website address"
+msgstr "Website URL"
+
+msgid "Defaults"
+msgstr "Standardeinstellungen"
+
+msgid "Start Page"
+msgstr "Startseite"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Transfer From Account"
+msgstr "Überweisen von"
+
+msgid "Transfer To Account"
+msgstr "Überweisen zu"
+
+msgid "Payment Account"
+msgstr "Zahlungskonto"
+
+msgid "Expense Account"
+msgstr "Aufwandskonto"
+
+msgid "Payment Method"
+msgstr "Zahlungsmethode"
+
+msgid "Expense Payment Method"
+msgstr "Zahlungsmethode für Ausgaben"
+
+msgid "Net Terms"
+msgstr "Netto Bedingungen"
+
+msgid "Client Hourly Rate"
+msgstr "Stundensatz Kunde"
+
+msgid "SMTP Mail Settings"
+msgstr "SMTP-Mail-Einstellungen"
+
+msgid "For Sending Email"
+msgstr "Zum Versenden von E-Mails"
+
+msgid "SMTP Provider"
+msgstr "SMTP-Anbieter"
+
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+msgid "Standard SMTP"
+msgstr "Standard-SMTP"
+
+msgid "Username/Password"
+msgstr "Benutzername/Passwort"
+
+msgid "Google Workspace"
+msgstr "Google Arbeitsbereich"
+
+msgid "Microsoft 365"
+msgstr "Microsoft 365"
+
+msgid "Choose your SMTP provider. OAuth options ignore the SMTP password here."
+msgstr "Wählen Sie Ihren SMTP-Anbieter. OAuth-Optionen ignorieren hier das SMTP-Passwort."
+
+msgid "SMTP Host"
+msgstr "SMTP-Host"
+
+msgid "SMTP Port"
+msgstr "SMTP Port"
+
+msgid "Encryption"
+msgstr "Verschlüsselung"
+
+msgid "SMTP Username"
+msgstr "SMTP-Benutzername"
+
+msgid "SMTP Password"
+msgstr "SMTP-Kennwort"
+
+msgid "IMAP Mail Settings"
+msgstr "IMAP-Mail-Einstellungen"
+
+msgid "For Monitoring Ticket Inbox"
+msgstr "Zur Überwachung des Ticket-Eingangs"
+
+msgid "IMAP Provider"
+msgstr "IMAP-Anbieter"
+
+msgid "Standard IMAP"
+msgstr "Standard IMAP"
+
+msgid "Select your mailbox provider. OAuth options ignore the IMAP password here."
+msgstr "Wählen Sie Ihren Mailbox-Anbieter. OAuth-Optionen ignorieren hier das IMAP-Passwort."
+
+msgid "IMAP Host"
+msgstr "IMAP-Host"
+
+msgid "IMAP Port"
+msgstr "IMAP-Anschluss"
+
+msgid "IMAP Encryption"
+msgstr "IMAP-Verschlüsselung"
+
+msgid "IMAP Username"
+msgstr "IMAP-Benutzername"
+
+msgid "IMAP Password"
+msgstr "IMAP-Kennwort"
+
+msgid "OAuth Settings (shared for IMAP & SMTP)"
+msgstr "OAuth-Einstellungen (für IMAP und SMTP)"
+
+msgid "Configure OAuth credentials for the selected provider."
+msgstr "Konfigurieren Sie die OAuth-Anmeldeinformationen für den ausgewählten Anbieter."
+
+msgid "OAuth Client ID"
+msgstr "OAuth-Client-ID"
+
+msgid "OAuth Client Secret"
+msgstr "OAuth-Client-Geheimnis"
+
+msgid "Tenant ID (Microsoft 365 only)"
+msgstr "Mieter-ID (nur Microsoft 365)"
+
+msgid "Refresh Token"
+msgstr "Token aktualisieren"
+
+msgid "Access Token (optional – will refresh if expired)"
+msgstr "Access Token (optional - wird aktualisiert, wenn er abgelaufen ist)"
+
+msgid "Expires at:"
+msgstr "Läuft ab am:"
+
+msgid "Mail From Configuration"
+msgstr "Mail von Konfiguration"
+
+msgid "System Default"
+msgstr "Systemvoreinstellung"
+
+msgid "used for system tasks such as sending share links"
+msgstr "wird für Systemaufgaben wie das Senden von Freigabelinks verwendet"
+
+msgid "From Email"
+msgstr "Von E-Mail"
+
+msgid "From Name"
+msgstr "Von Name"
+
+msgid "used for when invoice emails are sent"
+msgstr "für den Versand von Rechnungs-E-Mails verwendet"
+
+msgid "used for when quote emails are sent"
+msgstr "für den Versand von Angebots-E-Mails verwendet"
+
+msgid "used for when tickets are created and emailed to a client"
+msgstr "wird verwendet, wenn Tickets erstellt und per E-Mail an einen Kunden gesendet werden"
+
+msgid "Test Email Sending"
+msgstr "E-Mail-Versand testen"
+
+msgid "Select an Email Address to send from"
+msgstr "Wählen Sie eine E-Mail-Adresse zum Senden aus"
+
+msgid "Send"
+msgstr "Senden Sie"
+
+msgid "Test IMAP Connection"
+msgstr "IMAP-Verbindung testen"
+
+msgid "Test"
+msgstr "Test"
+
+msgid "Mail Server Address"
+msgstr "Mail-Server"
+
+msgid "Mail Server Port Number"
+msgstr "Mail-Server Port"
+
+msgid "Username (Leave blank if no auth is required)"
+msgstr "Benutzername (Leer lassen, wenn keine Anmeldung erforderlich ist)"
+
+msgid "Password (Leave blank if no auth is required)"
+msgstr "Passwort (Leer lassen, wenn keine Anmeldung erforderlich ist)"
+
+msgid "Incoming Mail Server Address (for email to ticket parsing)"
+msgstr "Adresse des eingehnden Mailservers (Für das auslesen eingehender Tickets per Mail)"
+
+msgid "Incoming Mail Server Port Number (993)"
+msgstr "Port Nummer für eingehende Mails (993)"
+
+msgid "Username (email address)"
+msgstr "Benutzername (Mails-Adresse)"
+
+msgid "Password (not used for OAuth)"
+msgstr "Passwort (Für OAuth nicht notwendig)"
+
+msgid "Paste refresh token"
+msgstr "Refresh-Token hier einfügen"
+
+msgid "Can be left blank; system refreshes using the refresh token"
+msgstr "Kann leer gelassen werden. Das system aktualisiert automatisch mit dem Refresh-Token"
+
+msgid "Email address to send to"
+msgstr "Ziel-Mail-Adresse"
+
+msgid "Theme"
+msgstr "Theme"
+
+msgid "Select a Theme"
+msgstr "Wählen Sie ein Theme"
+
+msgid "Favicon"
+msgstr "Favicon"
+
+msgid "Upload Icon"
+msgstr "Icon hochladen"
