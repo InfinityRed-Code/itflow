@@ -217,7 +217,7 @@
                         <li class="nav-item">
                             <a href="settings_notification.php" class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'settings_notification.php' ? 'active' : ''); ?>">
                                 <i class="nav-icon far fa-bell"></i>
-                                <p><?php _e('Notofications'); ?></p>
+                                <p><?php _e('Notifications'); ?></p>
                             </a>
                         </li>
                         <li class="nav-item">

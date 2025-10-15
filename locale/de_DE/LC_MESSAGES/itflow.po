@@ -44,6 +44,9 @@ msgstr "Berichte"
 msgid "Settings"
 msgstr "Einstellungen"
 
+msgid "SETTINGS"
+msgstr "EINSTELLNUNGEN"
+
 msgid "Logout"
 msgstr "Abmelden"
 
@@ -667,7 +670,7 @@ msgstr "Dokumenten-Vorlagen"
 msgid "MAINTENANCE"
 msgstr "WARTUNG"
 
-msgid "Mail-Queue"
+msgid "Mail Queue"
 msgstr "Mail-Warteschlange"
 
 msgid "Audit Logs"
@@ -685,6 +688,9 @@ msgstr "Debug"
 msgid "Update"
 msgstr "Update"
 
+msgid "Invoice"
+msgstr "Rechnung"
+
 msgid "Quote"
 msgstr "Angebot"
 
@@ -699,3 +705,4 @@ msgstr "Module"
 
 msgid "Administration"
 msgstr "Administration"
+
