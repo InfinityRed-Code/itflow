@@ -724,3 +724,5 @@ msgstr "Letzte Anmeldung"
 msgid "Action"
 msgstr "Aktion"
 
+msgid "Archived"
+msgstr "Archivierte"
