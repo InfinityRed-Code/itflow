@@ -512,10 +512,10 @@ msgid "OAuth Client Secret"
 msgstr "OAuth-Client-Geheimnis"
 
 msgid "Tenant ID (Microsoft 365 only)"
-msgstr "Mieter-ID (nur Microsoft 365)"
+msgstr "Tenant-ID (nur Microsoft 365)"
 
 msgid "Refresh Token"
-msgstr "Token aktualisieren"
+msgstr "Refresh-Token"
 
 msgid "Access Token (optional – will refresh if expired)"
 msgstr "Access Token (optional - wird aktualisiert, wenn er abgelaufen ist)"
@@ -524,10 +524,10 @@ msgid "Expires at:"
 msgstr "Läuft ab am:"
 
 msgid "Mail From Configuration"
-msgstr "Mail von Konfiguration"
+msgstr "Einstellungen Mailversand"
 
 msgid "System Default"
-msgstr "Systemvoreinstellung"
+msgstr "Standard-Einstellungen"
 
 msgid "used for system tasks such as sending share links"
 msgstr "wird für Systemaufgaben wie das Senden von Freigabelinks verwendet"
@@ -581,7 +581,7 @@ msgid "Incoming Mail Server Port Number (993)"
 msgstr "Port Nummer für eingehende Mails (993)"
 
 msgid "Username (email address)"
-msgstr "Benutzername (Mails-Adresse)"
+msgstr "Benutzername (Mail-Adresse)"
 
 msgid "Password (not used for OAuth)"
 msgstr "Passwort (Für OAuth nicht notwendig)"
