@@ -10,6 +10,20 @@ $GLOBALS['translation_available'] = false;
 $GLOBALS['translation_locale'] = 'en_US';
 
 /**
+ * Debug function to check paths
+ * REMOVE THIS AFTER DEBUGGING
+ */
+function debug_translation_paths() {
+    return [
+        'functions_dir' => __DIR__,
+        'functions_file' => __FILE__,
+        'locale_path' => __DIR__ . '/locale',
+        'locale_path_realpath' => realpath(__DIR__ . '/locale'),
+        'locale_exists' => file_exists(__DIR__ . '/locale'),
+    ];
+}
+
+/**
  * Initialize the translation system
  * Should be called after locale is loaded from database
  *

@@ -34,4 +34,10 @@ echo "  functions.php should be in: " . $_SERVER['DOCUMENT_ROOT'] . "/functions.
 echo "  locale should be in: " . $_SERVER['DOCUMENT_ROOT'] . "/locale\n";
 echo "  File exists at expected location: " . (file_exists($_SERVER['DOCUMENT_ROOT'] . "/functions.php") ? "YES" : "NO") . "\n";
 
+echo "\n=== CRITICAL: __DIR__ inside functions.php ===\n";
+$debug_paths = debug_translation_paths();
+foreach ($debug_paths as $key => $value) {
+    echo "  $key = " . var_export($value, true) . "\n";
+}
+
 echo "</pre>";
