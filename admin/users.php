@@ -23,19 +23,19 @@ $num_rows = mysqli_fetch_row(mysqli_query($mysqli, "SELECT FOUND_ROWS()"));
 
 <div class="card card-dark">
     <div class="card-header py-2">
-        <h3 class="card-title mt-2"><i class="fas fa-fw fa-users mr-2"></i>Users</h3>
+        <h3 class="card-title mt-2"><i class="fas fa-fw fa-users mr-2"></i><?php _e('Users'); ?></h3>
         <div class="card-tools">
             <div class="btn-group">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUserModal">
-                    <i class="fas fa-fw fa-user-plus mr-2"></i>New User
+                    <i class="fas fa-fw fa-user-plus mr-2"></i><?php _e('New User'); ?>
                 </button>
                 <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
                 <div class="dropdown-menu">
                     <!--<a class="dropdown-item text-dark" href="#" data-toggle="modal" data-target="#userInviteModal"><i class="fas fa-paper-plane mr-2"></i>Invite User</a>-->
                     <?php if ($num_rows[0] > 1) { ?>
-                        <a class="dropdown-item text-dark" href="#" data-toggle="modal" data-target="#exportUserModal"><i class="fa fa-fw fa-download mr-2"></i>Export</a>
+                        <a class="dropdown-item text-dark" href="#" data-toggle="modal" data-target="#exportUserModal"><i class="fa fa-fw fa-download mr-2"></i><?php _e('Export'); ?></a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" href="#" data-toggle="modal" data-target="#resetAllUserPassModal"><i class="fas fa-skull-crossbones mr-2"></i>IR</a>
+                        <a class="dropdown-item text-danger" href="#" data-toggle="modal" data-target="#resetAllUserPassModal"><i class="fas fa-skull-crossbones mr-2"></i><?php _e('IR'); ?></a>
                     <?php } ?>
                 </div>
             </div>
@@ -56,7 +56,7 @@ $num_rows = mysqli_fetch_row(mysqli_query($mysqli, "SELECT FOUND_ROWS()"));
                     <div class="btn-group float-right">
                         <a href="?archived=<?php if($archived == 1){ echo 0; } else { echo 1; } ?>" 
                             class="btn btn-<?php if($archived == 1){ echo "primary"; } else { echo "default"; } ?>">
-                            <i class="fa fa-fw fa-archive mr-2"></i>Archived
+                            <i class="fa fa-fw fa-archive mr-2"></i><?php _e('Archived'); ?>
                         </a>
                     </div>
                 </div>
@@ -69,29 +69,29 @@ $num_rows = mysqli_fetch_row(mysqli_query($mysqli, "SELECT FOUND_ROWS()"));
                 <tr>
                     <th class="text-center">
                         <a class="text-dark" href="?<?php echo $url_query_strings_sort; ?>&sort=user_name&order=<?php echo $disp; ?>">
-                            Name <?php if ($sort == 'user_name') { echo $order_icon; } ?>
+                            <?php _e('Name'); ?> <?php if ($sort == 'user_name') { echo $order_icon; } ?>
                         </a>
                     </th>
                     <th>
                         <a class="text-dark" href="?<?php echo $url_query_strings_sort; ?>&sort=user_email&order=<?php echo $disp; ?>">
-                            Email <?php if ($sort == 'user_email') { echo $order_icon; } ?>
+                            <?php _e('Email'); ?> <?php if ($sort == 'user_email') { echo $order_icon; } ?>
                         </a>
                     </th>
                     <th>
                         <a class="text-dark" href="?<?php echo $url_query_strings_sort; ?>&sort=role_name&order=<?php echo $disp; ?>">
-                            Role <?php if ($sort == 'role_name') { echo $order_icon; } ?>
+                            <?php _e('Role'); ?> <?php if ($sort == 'role_name') { echo $order_icon; } ?>
                         </a>
                     </th>
                     <th>
                         <a class="text-dark" href="?<?php echo $url_query_strings_sort; ?>&sort=user_status&order=<?php echo $disp; ?>">
-                            Status <?php if ($sort == 'user_status') { echo $order_icon; } ?>
+                            <?php _e('Staus'); ?> <?php if ($sort == 'user_status') { echo $order_icon; } ?>
                         </a>
                     </th>
-                    <th class="text-center">MFA</th>
+                    <th class="text-center"><?php _e('MFA'); ?></th>
                     <th>
-                        Last Login
+                        <?php _e('Last Login'); ?>
                     </th>
-                    <th class="text-center">Action</th>
+                    <th class="text-center"><?php _e('Action'); ?></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -189,7 +189,7 @@ $num_rows = mysqli_fetch_row(mysqli_query($mysqli, "SELECT FOUND_ROWS()"));
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item ajax-modal" href="#"
                                         data-modal-url="modals/user/user_edit.php?id=<?= $user_id ?>">
-                                        <i class="fas fa-fw fa-user-edit mr-2"></i>Edit
+                                        <i class="fas fa-fw fa-user-edit mr-2"></i><?php _e('Edit'); ?>
                                     </a>
                                     <?php if ($remember_token_count > 0) { ?>
                                     <a class="dropdown-item" href="post.php?revoke_remember_me=<?php echo $user_id; ?>&csrf_token=<?php echo $_SESSION['csrf_token'] ?>"><i class="fas fa-fw fa-ban mr-2"></i>Revoke <?php echo $remember_token_count; ?> Remember Tokens
@@ -197,22 +197,22 @@ $num_rows = mysqli_fetch_row(mysqli_query($mysqli, "SELECT FOUND_ROWS()"));
                                     <?php } ?>
                                     <?php if ($user_status == 0) { ?>
                                         <a class="dropdown-item text-success" href="post.php?activate_user=<?php echo $user_id; ?>&csrf_token=<?php echo $_SESSION['csrf_token'] ?>">
-                                            <i class="fas fa-fw fa-user-check mr-2"></i>Activate
+                                            <i class="fas fa-fw fa-user-check mr-2"></i><?php _e('Activate'); ?>
                                         </a>
                                     <?php }elseif ($user_status == 1) { ?>
                                         <a class="dropdown-item text-danger" href="post.php?disable_user=<?php echo $user_id; ?>&csrf_token=<?php echo $_SESSION['csrf_token'] ?>">
-                                            <i class="fas fa-fw fa-user-slash mr-2"></i>Disable
+                                            <i class="fas fa-fw fa-user-slash mr-2"></i><?php _e('Disable'); ?>
                                         </a>
                                     <?php } ?>
                                     <?php if ($user_archived_at) { ?>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item text-info ajax-modal" href="#" data-modal-url="modals/user/user_restore.php?id=<?= $user_id ?>">
-                                        <i class="fas fa-fw fa-redo-alt mr-2"></i>Restore
+                                        <i class="fas fa-fw fa-redo-alt mr-2"></i><?php _e('Restore'); ?>
                                     </a>
                                     <?php } else { ?>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item text-danger ajax-modal" href="#" data-modal-url="modals/user/user_archive.php?id=<?= $user_id ?>">
-                                        <i class="fas fa-fw fa-archive mr-2"></i>Archive
+                                        <i class="fas fa-fw fa-archive mr-2"></i><?php _e('Archive'); ?>
                                     </a>
                                     <?php } ?>
                                 </div>

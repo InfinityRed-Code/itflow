@@ -706,3 +706,21 @@ msgstr "Module"
 msgid "Administration"
 msgstr "Administration"
 
+msgid "New User"
+msgstr "Neuer Benutzer"
+
+msgid "Role"
+msgstr "Rolle"
+
+msgid "Status"
+msgstr "Staus"
+
+msgid "MFA"
+msgstr "MFA"
+
+msgid "Last Login"
+msgstr "Letzte Anmeldung"
+
+msgid "Action"
+msgstr "Aktion"
+
