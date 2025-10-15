@@ -41,7 +41,12 @@ function init_translations($locale = 'en_US') {
         return false;
     }
 
-    // Set text domain EVERY TIME (gettext needs this to be set correctly)
+    // If already initialized for this locale, return early
+    if ($translation_initialized && $translation_locale === $locale) {
+        return $translation_available;
+    }
+
+    // Set text domain EVERY TIME we actually initialize (not on early return)
     $domain = 'itflow';
     $functions_dir = __DIR__;
     $locale_path = $functions_dir . '/locale';
@@ -54,16 +59,6 @@ function init_translations($locale = 'en_US') {
         $translation_initialized = true;
         $translation_available = false;
         return false;
-    }
-
-    // Always bind the text domain (this is cheap and ensures correct path)
-    bindtextdomain($domain, $locale_path_absolute);
-    bind_textdomain_codeset($domain, 'UTF-8');
-    textdomain($domain);
-
-    // If already initialized for this locale, return early
-    if ($translation_initialized && $translation_locale === $locale) {
-        return $translation_available;
     }
 
     // Set locale for gettext
@@ -93,6 +88,11 @@ function init_translations($locale = 'en_US') {
     if (!$locale_set) {
         error_log("ITFlow Translation: Could not set system locale to $locale. This is informational only - translations may still work.");
     }
+
+    // Bind text domain (AFTER setting locale and environment)
+    bindtextdomain($domain, $locale_path_absolute);
+    bind_textdomain_codeset($domain, 'UTF-8');
+    textdomain($domain);
 
     // Check if translation file exists
     $mo_file = $locale_path . '/' . $locale . '/LC_MESSAGES/' . $domain . '.mo';
