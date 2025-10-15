@@ -19,28 +19,45 @@ $GLOBALS['translation_locale'] = 'en_US';
 function init_translations($locale = 'en_US') {
     global $translation_initialized, $translation_available, $translation_locale;
 
-    if ($translation_initialized) {
-        return $translation_available;
-    }
-
-    $translation_initialized = true;
-    $translation_locale = $locale;
-
-    // Check if gettext extension is available
-    if (!function_exists('gettext')) {
-        error_log("ITFlow Translation: gettext extension not available, using fallback mode");
+    // Check if gettext extension is available (only check once)
+    if (!$translation_initialized && !function_exists('gettext')) {
+        error_log("ITFlow Translation: gettext extension not available");
+        $translation_initialized = true;
         $translation_available = false;
         return false;
     }
 
+    // Set text domain EVERY TIME (gettext needs this to be set correctly)
+    $domain = 'itflow';
+    $functions_dir = __DIR__;
+    $locale_path = $functions_dir . '/locale';
+    $locale_path_absolute = realpath($locale_path);
+
+    if ($locale_path_absolute === false) {
+        if (!$translation_initialized) {
+            error_log("ITFlow Translation: Could not resolve locale path: $locale_path");
+        }
+        $translation_initialized = true;
+        $translation_available = false;
+        return false;
+    }
+
+    // Always bind the text domain (this is cheap and ensures correct path)
+    bindtextdomain($domain, $locale_path_absolute);
+    bind_textdomain_codeset($domain, 'UTF-8');
+    textdomain($domain);
+
+    // If already initialized for this locale, return early
+    if ($translation_initialized && $translation_locale === $locale) {
+        return $translation_available;
+    }
+
     // Set locale for gettext
-    // Try multiple locale variants as different systems may use different formats
     $locale_variants = [
         $locale . '.UTF-8',
         $locale . '.utf8',
         $locale . '.UTF8',
         $locale,
-        // Also try lowercase variants
         strtolower($locale) . '.utf-8',
         strtolower($locale) . '.utf8',
         strtolower($locale),
@@ -54,47 +71,29 @@ function init_translations($locale = 'en_US') {
         }
     }
 
-    // Also set environment variables for gettext
-    // This is important for gettext to work properly
+    // Set environment variables for gettext
     putenv("LC_ALL=$locale");
     putenv("LC_MESSAGES=$locale");
     putenv("LANGUAGE=$locale");
 
-    // Note: Even if locale is not set on the system, gettext can still work
     if (!$locale_set) {
         error_log("ITFlow Translation: Could not set system locale to $locale. This is informational only - translations may still work.");
     }
 
-    // Set text domain
-    $domain = 'itflow';
-
-    // Use DOCUMENT_ROOT to ensure correct path from any directory (admin, client, etc.)
-    $locale_path = $_SERVER['DOCUMENT_ROOT'] . '/locale';
-
-    // Ensure we have an absolute path for gettext
-    $locale_path_absolute = realpath($locale_path);
-    if ($locale_path_absolute === false) {
-        error_log("ITFlow Translation: Could not resolve locale path: $locale_path");
-        $translation_available = false;
-        return false;
-    }
-
-    bindtextdomain($domain, $locale_path_absolute);
-    bind_textdomain_codeset($domain, 'UTF-8');
-    textdomain($domain);
-
     // Check if translation file exists
     $mo_file = $locale_path . '/' . $locale . '/LC_MESSAGES/' . $domain . '.mo';
     if (!file_exists($mo_file)) {
-        // If German translation doesn't exist yet, log it but don't fail
         if ($locale !== 'en_US') {
             error_log("ITFlow Translation: Translation file not found for locale $locale. Using English as fallback. ($mo_file)");
         }
+        $translation_initialized = true;
         $translation_available = false;
         return false;
     }
 
+    $translation_initialized = true;
     $translation_available = true;
+    $translation_locale = $locale;
     return true;
 }
 
