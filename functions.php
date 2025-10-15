@@ -67,7 +67,9 @@ function init_translations($locale = 'en_US') {
 
     // Set text domain
     $domain = 'itflow';
-    $locale_path = __DIR__ . '/locale';
+
+    // Use DOCUMENT_ROOT to ensure correct path from any directory (admin, client, etc.)
+    $locale_path = $_SERVER['DOCUMENT_ROOT'] . '/locale';
 
     // Ensure we have an absolute path for gettext
     $locale_path_absolute = realpath($locale_path);
